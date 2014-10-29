@@ -11,13 +11,15 @@ class Solution:
         return res
         
     def existRecur(self, board, word, i, j, visited):
-        if word is '' and visited[i][j] == 0: return True
+        if word is '': return True
         if i<0 or i>=len(board): return False
         if j<0 or j>=len(board[0]): return False
         char = word[0]
-        if char == board[i][j]: 
+        if char == board[i][j] and visited[i][j]==0: 
             visited[i][j]=1
-            return self.existRecur(board, word[1:],i-1,j) or self.existRecur(board, word[1:],i+1,j) or self.existRecur(board, word[1:],i,j-1) or self.existRecur(board, word[1:],i,j+1)
+            if (self.existRecur(board, word[1:],i-1,j, visited) or self.existRecur(board, word[1:],i+1,j, visited) or self.existRecur(board, word[1:],i,j-1, visited) or self.existRecur(board, word[1:],i,j+1, visited)) is False:
+                visited[i][j]=0; return False
+            else: return True
         return False
 
 if __name__ == "__main__":
@@ -28,3 +30,7 @@ if __name__ == "__main__":
     print s.exist(b, "ABCCED")
     print s.exist(b, "SEE")
     print s.exist(b, "ABCB")
+    b = [["a", "a"]]
+    print s.exist(b, "aa")
+    b = [["a"]]
+    print s.exist(b, "a")
