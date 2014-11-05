@@ -8,16 +8,14 @@ class Solution:
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
                 if matrix[i][j] == "1":
-                    print i, j
-                    if j==0: dp[i][0] == 1
+                    if j==0: dp[i][0] = 1
                     else: dp[i][j] = dp[i][j-1]+1
-        print dp
         for i in range(len(matrix)):
             for j in range(len(matrix[0])):
                 if dp[i][j]!=0:
                     k = i; width = dp[i][j]; height = 1
                     while k>=0:
-                        width = min(width, dp[i][j])
+                        width = min(width, dp[k][j])
                         area = width * height
                         res = max(res, area)
                         k-=1; height+=1
@@ -38,5 +36,9 @@ if __name__ == "__main__":
     print s.maximalRectangle(matrix)
     matrix = [
         ["1"]
+    ]
+    print s.maximalRectangle(matrix)
+    matrix = [
+        "01101","11010","01110","11110","11111","00000"
     ]
     print s.maximalRectangle(matrix)
