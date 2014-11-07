@@ -15,12 +15,15 @@ class Solution:
             if current.val == prev.val:
                 current = current.next
             else:
-                if prev.next == current:
+                # only connect to dummy when ensuring prev has no duplicates
+                if prev.next == current: 
                     prevprev.next = prev
                     prevprev = prev
                     prevprev.next = None
                     prev = current
                     current = current.next
+                # jump over all old prev elements w/ duplicates
+                # but still not sure whether new prev has duplicates
                 else:
                     prev = current
                     current = current.next
