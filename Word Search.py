@@ -7,8 +7,9 @@ class Solution:
         visited = [[0 for j in range(len(board[0]))] for i in range(len(board))]
         for i in range(len(board)):
             for j in range(len(board[0])):
-                res = res or self.existRecur(board, word, i, j, visited)
-        return res
+                print visited
+                if self.existRecur(board, word, i, j, visited): return True
+        return False
         
     def existRecur(self, board, word, i, j, visited):
         if word is '': return True
