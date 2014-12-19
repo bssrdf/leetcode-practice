@@ -19,5 +19,6 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     print s.canCompleteCircuit([2, 2], [3, 1])
+    print s.canCompleteCircuit([1, 2], [3, 2])
 
 
