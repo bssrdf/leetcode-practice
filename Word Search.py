@@ -7,7 +7,6 @@ class Solution:
         visited = [[0 for j in range(len(board[0]))] for i in range(len(board))]
         for i in range(len(board)):
             for j in range(len(board[0])):
-                print visited
                 if self.existRecur(board, word, i, j, visited): return True
         return False
         
