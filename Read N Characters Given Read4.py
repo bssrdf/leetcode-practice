@@ -21,6 +21,6 @@ if __name__ == "__main__":
             buf4[j] = content[i]
             j+=1; i+=1
         return j
-    buf = ['']*26
+    buf = ['']*10
     print s.read(buf, 10)
     print buf
